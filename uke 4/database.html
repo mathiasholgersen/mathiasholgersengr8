@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBMo6wxLAslfGuvZ-8XcY8YoHtmQNNx5-U",
+        authDomain: "databasegreier.firebaseapp.com",
+        databaseURL: "https://databasegreier.firebaseio.com",
+        projectId: "databasegreier",
+        storageBucket: "",
+        messagingSenderId: "251274638453"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script>
+     const db = firebase.database();
+     const kontaktliste = db.ref("kontaktliste")
+     kontaktliste.push(
+     "Mathias":{
+       "navn":"Mathias Holgersen",
+       "alder":17,
+       "nærmeste familie":["Thomas","pappa","Mamma","onkler og tanter"],
+       "fødselsdag":{
+         "dag": 3,
+         "måned":"august",
+         "år":2001
+       },
+       "adresse":"Heggesnaret 14 e",
+       "interesser":["Knulle","Drikke","Sloss"]
+     }
+
+     )
+     kontaktliste.push(
+     "Tobias":{
+       "navn":"Tobias gayface",
+       "alder":17,
+       "nærmeste familie":["søster","pappa","Mamma","bikkjer"],
+       "fødselsdag":{
+         "dag": 6,
+         "måned":"august",
+         "år":2001
+       },
+       "adresse":"Nesøyaveien 14 e",
+       "interesser":["Suge","Nørde","ikke knulle no særlig"]
+     }
+
+     )
+   </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MAYMAYS</title>
+    <link rel="stylesheet" href="memes.css">
+  </head>
+  <body>
+    <header>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <img src="memes.jpg" class="logo">
+      <h1 class="overskrift">Top ten mememes of 2018</h1>
+    </header>
+    <main>
+      <h2>1.Offramp meme</h2>
+      <img src="offramp.jpeg">
+      <p>this maymay is about doing the right(going straight)/wrong(taking the offramp) thing. it's really funny</p>
+      <br>
+      <h2>2.Tide pod meme</h2>
+      <img src="tide-pod.jpg">
+    </main>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.display = "none";
+    }
+    </script>
+  </body>
+</html>

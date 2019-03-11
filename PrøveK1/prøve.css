@@ -1,0 +1,39 @@
+body {
+  margin-left: 200px;
+  background-color: lightblue;
+}
+h1 {
+font-style: italic;
+}
+h2 {
+font-style: italic;
+}
+header{
+  width: 60%;
+  margin: auto;
+}
+
+ul{
+  list-style-type: none;
+  padding:0;
+
+}
+
+li{
+  display: inline;
+}
+
+li>a{
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+p{
+line-height: 22px;
+}
+img {
+width: 400px;
+}
+video {
+  width: 300px;
+}

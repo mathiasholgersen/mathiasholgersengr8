@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Database av ting</title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+   <script>
+     // Initialize Firebase
+     var config = {
+       apiKey: "AIzaSyCFhmDveqpzRvevF6EyrLOh0NbACDQ3C_4",
+       authDomain: "pokemon-uke-8.firebaseapp.com",
+       databaseURL: "https://pokemon-uke-8.firebaseio.com",
+       projectId: "pokemon-uke-8",
+       storageBucket: "",
+       messagingSenderId: "974522538356"
+     };
+     firebase.initializeApp(config);
+   </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="visAlle()">Vis alle</button>
+        <button onclick="visGrass()">Vis grass</button>
+        <button onclick="location.href='chat.html'">Chat</button>
+      </nav>
+    </header>
+    <main>
+
+    </main>
+    <script>
+      const main = document.querySelector("main");
+
+      const db = firebase.database();
+      const pokemon = db.ref("pokemon");
+
+      function visPokemon(snapshot){
+        console.log(snapshot.val());
+        let pokeSnap = snapshot.val();
+        main.innerHTML +=`
+          <article class="pokemon">
+            <h1>${pokeSnap.Name}</h1>
+            <img src="${pokeSnap.ImageURL}" alt="">
+            <p>${pokeSnap.Type1} - ${pokeSnap.Type2}</p>
+          </article>
+          `
+      }
+      function visAlle(){
+        main.innerHTML = ``
+        pokemon.on("child_added",visPokemon);
+      }
+      function visGrass(){
+        main.innerHTML = ``
+        pokemon
+          .orderByChild("Type1")
+          .equalTo("Grass")
+          .on("child_added",visPokemon);
+      }
+
+
+    </script>
+  </body>
+</html>

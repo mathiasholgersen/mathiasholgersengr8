@@ -1,0 +1,12 @@
+{
+  "navn":"Mathias Holgersen",
+  "alder":17,
+  "nærmeste familie":["Thomas","pappa","Mamma","onkler og tanter"],
+  "fødselsdag":{
+    "dag": 3,
+    "måned":"august",
+    "år":2001
+  },
+  "adresse":"Heggesnaret 14 e",
+  "interesser":["Knulle","Drikke","Sloss"]
+}

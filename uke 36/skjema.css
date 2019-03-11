@@ -1,0 +1,14 @@
+header {
+  height: 110%;
+  width: 110%;
+  background-color: red;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 auto;
+}
+
+li {
+  display: inline;
+}

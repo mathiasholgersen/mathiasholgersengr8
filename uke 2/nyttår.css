@@ -1,0 +1,34 @@
+header{
+  background-color: lightgrey;
+}
+
+header nav{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+main{
+  width: 90%;
+  margin: auto;
+  background-color: cyan;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+@media (max-width: 900) {
+  main{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 600) {
+  main{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tobias{
+  width: 100%;
+  margin-left: auto;
+}

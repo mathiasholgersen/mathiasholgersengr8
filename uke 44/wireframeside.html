@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vredens Gnag</title>
+    <style media="screen">
+
+      h1{
+        font-size: 3em;
+      }
+
+      header{
+        background-color: #ff0000;
+        color: white;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+
+      }
+      .navbar{
+        list-style-type: none;
+        color:white;
+        text-decoration: none;
+        font-size: 1.5em;
+      }
+      .navbar:hover{
+        text-decoration: underline;
+      }
+      main{
+        padding-top: 15px;
+        margin-left: 200px;
+        margin-right: 200px;
+      }
+      #innhold{
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        grid-gap: 20px;
+      }
+      .artikkelmiddels{
+        background-color: red;
+        grid-column: span 6;
+        grid-row: span 15;
+      }
+      .artikkelliten{
+        background-color: red;
+        grid-column: span 4;
+        grid-row: span 15;
+      }
+      .artikkelstor{
+        background-color: red;
+        grid-column: span 10;
+        grid-row: span 15;
+      }
+      .reklametopp{
+        grid-column: span 10;
+      }
+      #penis{
+        width: 1485px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a class="navbar" href="Hjem.html">Hjem</a></li>
+          <li><a class="navbar" href="Nyheter.html">Nyheter</a></li>
+          <li><a class="navbar" href="Sporten.html">Sporten</a></li>
+          <li><a class="navbar" href="kontakt.html">Kontakt oss</a></li>
+        </ul>
+      </nav>
+      <h1>Vredens Gnag</h1>
+    </header>
+    <main>
+      <div id="innhold">
+        <div class="reklametopp"><img id="penis" src="reklametopp.jpg"></div>
+        <div class="artikkelmiddels">middels artikkel</div>
+        <div class="artikkelliten">liten artikkel</div>
+        <div class="artikkelstor">stor artikkel</div>
+        <div class="artikkelmiddels">middels artikkel</div>
+        <div class="artikkelliten">liten artikkel</div>
+        <div class="artikkelmiddels">middels artikkel</div>
+        <div class="artikkelliten">liten artikkel</div>
+        <div class="artikkelstor">stor artikkel</div>
+        <div class="artikkelstor">stor artikkel</div>
+        <div class="artikkelmiddels">middels artikkel</div>
+
+      </div>
+    </main>
+    <img class="reklame" src="reklamevenstre.jpg">
+  </body>
+</html>

@@ -1,0 +1,28 @@
+nav{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+nav a{
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: center;
+  transition: all .2s ease-in-out;
+}
+
+nav a:hover{
+  color: white;
+  border: white;
+  transform: scale(1.1);
+}
+header{
+  background-color: red;
+  height: 100px;
+}
+header h1{
+  text-align: center;
+}
+p {
+  
+}
