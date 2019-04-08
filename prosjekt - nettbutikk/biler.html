@@ -26,8 +26,25 @@
         <a href="biler.html">Våre biler</a>
         <a href="omoss.html">Om oss</a>
       </nav>
+      <br>
+      <div class="sortereknapper">
+      <div>
+      <h3>Velg Merke</h3>
+      <br>
+      <button onclick="VisBMW()"><a>BMW</a></button>
+      <button onclick="VisPorsche()"><a>Porsche</a></button>
+      <button onclick="VisMercedes()"><a>Mercedes</a></button>
+      </div>
+      <div>
+      <h3>Sorter etter</h3>
+      <br>
+      <button onclick="sorterAlder()"><a>Alder</a></button>
+      <button onclick="sorterSynkende()"><a>Pris synkende</a></button>
+      <button onclick="sorterStigende()"><a>Pris stigende</a></button>
+      </div>
+      </div>
     </header>
-    <main>
+    <main id="biler">
 
     </main>
     <footer>
@@ -42,17 +59,17 @@
       let biler = snapshot.val();
       main.innerHTML +=`
           <article class="Biler">
-            <h1>${biler.Merke}${biler.Modell}</h1>
-            <img src="${biler.Bilde}" alt="">
+            <h1>${biler.Merke} ${biler.Modell}</h1>
+            <img src="bilderIT/${biler.Bilde}" alt="">
             <p>Km-stand: ${biler.Kmstand} År: ${biler.År}</p>
-            <p>Pris: ${biler.pris}</p>
+            <p>Pris: ${biler.Pris}</p>
           </article>
       `
     }
 
     function sorterAlder(){
       main.innerHTML = ``
-        biler.orderByChild("Alder")
+        biler.orderByChild("År")
         .on("child_added",genererHTML);
     }
 
@@ -68,7 +85,29 @@
         .on("child_added",genererHTML);
     }
 
-    function sorterStigende
+    function sorterStigende(){
+      main.innerHTML = ``
+        biler.orderByChild("Pris")
+        .on("child_added",genererHTML);
+    }
+    function VisBMW(){
+      main.innerHTML = ``
+        biler.orderByChild("Merke")
+        .equalTo("BMW")
+        .on("child_added", genererHTML);
+    }
+    function VisMercedes(){
+      main.innerHTML = ``
+        biler.orderByChild("Merke")
+        .equalTo("Mercedes Benz")
+        .on("child_added", genererHTML);
+    }
+    function VisPorsche(){
+      main.innerHTML = ``
+        biler.orderByChild("Merke")
+        .equalTo("Porsche")
+        .on("child_added", genererHTML);
+    }
     </script>
   </body>
 </html>

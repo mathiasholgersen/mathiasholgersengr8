@@ -2,7 +2,7 @@ nav{
   display: grid;
   grid-template-columns: repeat(3,1fr)
 }
-nav a{
+header a{
   display: block;
   padding: 8px 16px;
   text-decoration: none;
@@ -22,39 +22,31 @@ a:hover{
   transform: scale(1.1);
   color: white;
 }
-.sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
 
-/* The navigation menu links */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+.populært{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
+main{
+  margin-left: 70px;
 }
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+#biler{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+button{
+  decoration: none;
+  border: none;
+}
+.sortereknapper{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 70px;
+}
+.Biler{
+  border: 1px black;
+  border-radius: 10px;
+}
+body{
+  background-color: rgba(51, 122, 255, 0.5);
 }

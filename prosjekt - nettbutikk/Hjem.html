@@ -28,7 +28,27 @@
       </nav>
     </header>
     <main>
-
+      <h3>Populært</h3>
+      <div class=populært>
+        <div class="middelsannonse">
+          <h3>Mercedes Benz A45 AMG</h3>
+          <img src="bilderIT/bil002.jpg">
+          <p>Km-stand: 25000 År: 2018 </p>
+          <p>Pris: 415000</p>
+        </div>
+        <div class="middelsannonse">
+          <h3>Porsche 911 Carrera 4</h3>
+          <img src="bilderIT/bil007.jpg">
+          <p>Km-stand: 7600 År: 2018 </p>
+          <p>Pris: 1839000</p>
+        </div>
+        <div class="middelsannonse">
+          <h3>BMW f30 330e</h3>
+          <img src="bilderIT/bil008.jpg">
+          <p>Km-stand: 1500 År: 2018 </p>
+          <p>Pris: 539000</p>
+        </div>
+      </div>
     </main>
     <footer>
 
@@ -43,7 +63,7 @@
       main.innerHTML +=`
           <article class="Biler">
             <h1>${biler.Merke}${biler.Modell}</h1>
-            <img src="${biler.Bilde}" alt="">
+            <img src="bilderIT/${biler.Bilde}" alt="">
             <p>Km-stand: ${biler.Kmstand} År: ${biler.År}</p>
             <p>Pris: ${biler.pris}</p>
           </article>
@@ -72,6 +92,13 @@
       main.innerHTML = ``
         biler.orderByChild("Pris")
         .on("child_added",genererHTML);
+    }
+
+    function VisBMW(){
+      main.innerHTML = ``
+        biler.orderByChild("Merke")
+        .equalTo("BMW")
+        .on("child_added", genererHTML);
     }
     </script>
   </body>
