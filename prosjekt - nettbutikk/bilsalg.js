@@ -7,15 +7,17 @@ var id = url.searchParams.get("id");
 console.log(id);
 
 let db = firebase.database();
-let bilannonse = db.ref("Biler" + id)
+let biler = db.ref("Biler" + id)
 
 function genererHTML(snapshot){
-  let biler = snapshot.val()
+  let biler = snapshot.val(); //fikk opp feilmelding her uansett hva jeg  gjorde så jeg begynte å endre på litt av hvert for å eksperimentere meg fram og nå er jeg lost D: //
   bilbilde.innerHTML = `
   <img src="${biler.Bilde}" alt="">
   `;
-  // her lages koden til sykdom-taggen. i html fila. Må stemme overens med referansen øverst i koden
+
   detaljer.innerHTML = `
   <p>Vi har følgende informasjon: ${biler.detaljer}</p>
   `;
 }
+
+biler.on("value",genererHTML);

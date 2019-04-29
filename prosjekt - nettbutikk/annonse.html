@@ -28,52 +28,12 @@
       </nav>
     </header>
     <main>
-
+      <section id="bilbilde"></section>
+      <section id="detaljer"></section>
     </main>
     <footer>
 
     </footer>
-    <script>
-    const main = document.querySelector("main");
-    const db = firebase.database();
-    const biler = db.ref("Biler");
-
-    function genererHTML(snapshot){
-      let biler = snapshot.val();
-      main.innerHTML +=`
-          <article class="Biler">
-            <h1>${biler.Merke}${biler.Modell}</h1>
-            <img src="${biler.Bilde}" alt="">
-            <p>Km-stand: ${biler.Kmstand} År: ${biler.År}</p>
-            <p>Pris: ${biler.pris}</p>
-          </article>
-      `
-    }
-
-    function sorterAlder(){
-      main.innerHTML = ``
-        biler.orderByChild("Alder")
-        .on("child_added",genererHTML);
-    }
-
-    function sorterMerke(){
-      main.innerHTML = ``
-        biler.orderByChild("Merke")
-        .on("child_added",genererHTML);
-    }
-
-    function sorterSynkende(){
-      main.innerHTML = ``
-        biler.orderByChild("Pris")
-        .on("child_added",genererHTML);
-    }
-
-    function sorterStigende(){
-      main.innerHTML = ``
-        biler.orderByChild("Pris")
-        .on("child_added",genererHTML);
-    }
-    </script>
     <script src="bilsalg.js" charset="utf-8"></script>
   </body>
 </html>
