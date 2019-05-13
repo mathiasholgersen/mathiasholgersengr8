@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>HB - Våre biler</title>
+    <link rel="icon" type="image/png" href="bilderIT/icon.png">
     <link rel="stylesheet" href="bilsalg.css">
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
     <script>
@@ -20,7 +21,7 @@
   </head>
   <body>
     <header>
-      <h1>Holgersens Biler</h1>
+      <a href="hjem.html"><img src="bilderIT/biler.png" alt="" class="logo"></a>
       <nav>
         <a href="hjem.html">Hjem</a>
         <a href="biler.html">Våre biler</a>
@@ -48,7 +49,18 @@
 
     </main>
     <footer>
-
+      <a href="omoss.html#kontakt"><h2>Kontakt</h2></a>
+      <a href="omoss.html"><h2>Om oss</h2></a>
+      <a href="biler.html"><h2>Merker</h2></a>
+      <p>Adresse: Elias Smiths vei 15</p>
+      <a href="omoss.html#ansatte"><p>Våre ansatte</p></a>
+      <a href="bmw.html"><p>BMW</p></a>
+      <p>Tlf: 48263605</p>
+      <a href="omoss.html#Omoss"><p>Hvem er vi?</p></a>
+      <a href="porsche.html"><p>Porsche</p></a>
+      <p>Email: kontakt@HB.no</p>
+      <p></p>
+      <a href="Mercedes.html"><p>Mercedes</p></a>
     </footer>
     <script>
     const main = document.querySelector("main");
@@ -62,13 +74,49 @@
         <a href="annonse.html?id=${key}">
           <article class="Biler">
             <h1>${biler.Merke} ${biler.Modell}</h1>
-            <img src="bilderIT/${biler.Bilde}" alt="">
+            <img class="litebilde" src="bilderIT/${biler.Bilde}" alt="">
             <p>Km-stand: ${biler.Kmstand} År: ${biler.År}</p>
             <p>Pris: ${biler.Pris}</p>
           </article>
         </a>
-      `
+      `;
     }
+
+    function genererBilerRevers(snapshot) {
+      let biler = snapshot.val();
+      let key = snapshot.key;
+      let nyttelement = document.createElement("article");
+      nyttelement.innerHTML =`
+      <a href="annonse.html?id=${key}">
+      <h1>${biler.Merke} ${biler.Modell}</h1>
+      <img class="litebilde" src="bilderIT/${biler.Bilde}" alt="">
+      <p>Km-stand: ${biler.Kmstand} År: ${biler.År}</p>
+      <p>Pris: ${biler.Pris}</p>
+      </a>
+      `;
+      nyttelement.classList.add("Biler");
+      main.insertBefore(nyttelement, main.childNodes[0]);
+    }
+
+    function VisBMW(){
+      main.innerHTML = ``
+        biler.orderByChild("Merke")
+        .equalTo("BMW")
+        .on("child_added", genererHTML);
+    }
+
+    function VisMercedes(){
+      main.innerHTML = ``
+        biler.orderByChild("Merke")
+        .equalTo("Mercedes Benz")
+        .on("child_added", genererHTML);
+        }
+    function VisPorsche(){
+      main.innerHTML = ``
+        biler.orderByChild("Merke")
+        .equalTo("Porsche")
+        .on("child_added", genererHTML);
+        }
 
     function sorterAlder(){
       main.innerHTML = ``
@@ -84,8 +132,7 @@
 
     function sorterSynkende(){
       main.innerHTML = ``
-        biler.orderByChild("Pris")
-        .on("child_added",genererHTML);
+      biler.orderByChild("Pris").on("child_added", genererBilerRevers);
     }
 
     function sorterStigende(){
@@ -93,24 +140,7 @@
         biler.orderByChild("Pris")
         .on("child_added",genererHTML);
     }
-    function VisBMW(){
-      main.innerHTML = ``
-        biler.orderByChild("Merke")
-        .equalTo("BMW")
-        .on("child_added", genererHTML);
-    }
-    function VisMercedes(){
-      main.innerHTML = ``
-        biler.orderByChild("Merke")
-        .equalTo("Mercedes Benz")
-        .on("child_added", genererHTML);
-    }
-    function VisPorsche(){
-      main.innerHTML = ``
-        biler.orderByChild("Merke")
-        .equalTo("Porsche")
-        .on("child_added", genererHTML);
-    }
+
     </script>
   </body>
 </html>

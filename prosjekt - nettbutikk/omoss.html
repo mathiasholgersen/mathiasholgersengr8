@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>HB - Om oss</title>
+    <link rel="icon" type="image/png" href="bilderIT/icon.png">
     <link rel="stylesheet" href="bilsalg.css">
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
     <script>
@@ -20,7 +21,7 @@
   </head>
   <body>
     <header>
-      <h1>Holgersens Biler</h1>
+      <a href="hjem.html"><img src="bilderIT/biler.png" alt="" class="logo"></a>
       <nav>
         <a href="hjem.html">Hjem</a>
         <a href="biler.html">Våre biler</a>
@@ -28,10 +29,58 @@
       </nav>
     </header>
     <main>
-
+      <h2 name"kontakt">Kontakt</h2>
+        <h4>Adresse: Elias Smiths vei 15</h4>
+        <h4>Tlf: 48263605</h4>
+        <h4>Email: kontakt@HB.no</h4>
+        <form action="mailto:kontakt@HB.no" method="post" enctype="text/plain">
+          Navn:<br>
+          <input autocomplete="off" type="text" name="name"><br>
+          Mail-adresse:<br>
+          <input autocomplete="off" type="text" name="mail"><br>
+          Kommentar:<br>
+          <input autocomplete="off" type="text" name="comment" size="50"><br><br>
+          <input type="submit" value="Send">
+          <input type="reset" value="Reset">
+        </form>
+      <br>
+      <h2 name="ansatte">Våre ansatte</h2>
+      <div class="ansatte">
+        <div>
+          <h3>Tobias Gudbjerg</h3>
+          <img src="bilderIT/tobias.png" alt="">
+          <h4>Salgsansvarlig</h4>
+        </div>
+        <div>
+          <h3>Andreas Neråsen</h3>
+          <img src="bilderIT/andreas.png" alt="">
+          <h4>HR-ansvarlig</h4>
+        </div>
+        <div>
+          <h3>Mathias Holgersen</h3>
+          <img src="bilderIT/mathias.png" alt="">
+          <h4>Daglig leder</h4>
+        </div>
+      </div>
+      <br>
+      <h2 name="Omoss">Om oss</h2>
+      <p id="avsnitt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <br>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </main>
     <footer>
-
+      <a href="omoss.html#kontakt"><h2>Kontakt</h2></a>
+      <a href="omoss.html"><h2>Om oss</h2></a>
+      <a href="biler.html"><h2>Merker</h2></a>
+      <p>Adresse: Elias Smiths vei 15</p>
+      <a href="omoss.html#ansatte"><p>Våre ansatte</p></a>
+      <a href="bmw.html"><p>BMW</p></a>
+      <p>Tlf: 48263605</p>
+      <a href="omoss.html#Omoss"><p>Hvem er vi?</p></a>
+      <a href="porsche.html"><p>Porsche</p></a>
+      <p>Email: kontakt@HB.no</p>
+      <p></p>
+      <a href="Mercedes.html"><p>Mercedes</p></a>
     </footer>
     <script>
     const main = document.querySelector("main");

@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>HB - Hjem</title>
+    <link rel="icon" type="image/png" href="bilderIT/icon.png">
     <link rel="stylesheet" href="bilsalg.css">
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
     <script>
@@ -20,7 +21,7 @@
   </head>
   <body>
     <header>
-      <h1>Holgersens Biler</h1>
+      <a href="hjem.html"><img src="bilderIT/biler.png" alt="" class="logo"></a>
       <nav>
         <a href="hjem.html">Hjem</a>
         <a href="biler.html">Våre biler</a>
@@ -29,77 +30,62 @@
     </header>
     <main>
       <h3>Populært</h3>
-      <div class=populært>
-        <div class="middelsannonse">
-          <h3>Mercedes Benz A45 AMG</h3>
-          <img src="bilderIT/bil002.jpg">
-          <p>Km-stand: 25000 År: 2018 </p>
-          <p>Pris: 415000</p>
-        </div>
-        <div class="middelsannonse">
-          <h3>Porsche 911 Carrera 4</h3>
-          <img src="bilderIT/bil007.jpg">
-          <p>Km-stand: 7600 År: 2018 </p>
-          <p>Pris: 1839000</p>
-        </div>
-        <div class="middelsannonse">
-          <h3>BMW f30 330e</h3>
-          <img src="bilderIT/bil008.jpg">
-          <p>Km-stand: 1500 År: 2018 </p>
-          <p>Pris: 539000</p>
-        </div>
+      <section id="populært">
+
+      </section>
+      <iframe width="888" height="500" src="https://www.youtube.com/embed/DSrD4XXqT8k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br>
+      <br>
+      <h3>Vår historie</h3>
+      <p id="avsnitt">Holgersens biler ble startet i 1963, da Tobias Emil Holgersen kom tilbake til Norge fra et år i USA, og så et behov for en luksuriøs bilforhandler på det norske markedet. Tobias Emil begynte tidlig med import av eksotiske biler fra hele Europa, men spesialiserte seg i de tyske Autobahn-doningene på 90-tallet. I dag er det neste generasjon i Holgersen-familien som styrer showet, med Mathias Holgersen som daglig leder. Holgersens biler har lang fartstid innenfor salg og klargjøring av BMW, Porsche og Mercedes Benz, og vi er den eneste forhandleren som tilbyr alle disse tre merkene, i tillegg til sertifisert service og verksted</p>
+      <div class="logoer">
+        <img src="bilderIT/porschelogo.png">
+        <img src="bilderIT/bmwlogo.png" alt="">
+        <img src="bilderIT/mercedeslogo.png" alt="">
       </div>
     </main>
     <footer>
-
+      <a href="omoss.html#kontakt"><h2>Kontakt</h2></a>
+      <a href="omoss.html"><h2>Om oss</h2></a>
+      <a href="biler.html"><h2>Merker</h2></a>
+      <p>Adresse: Elias Smiths vei 15</p>
+      <a href="omoss.html#ansatte"><p>Våre ansatte</p></a>
+      <a href="bmw.html"><p>BMW</p></a>
+      <p>Tlf: 48263605</p>
+      <a href="omoss.html#Omoss"><p>Hvem er vi?</p></a>
+      <a href="porsche.html"><p>Porsche</p></a>
+      <p>Email: kontakt@HB.no</p>
+      <p></p>
+      <a href="Mercedes.html"><p>Mercedes</p></a>
     </footer>
     <script>
+    let pop = document.querySelector("#populært");
     const main = document.querySelector("main");
     const db = firebase.database();
     const biler = db.ref("Biler");
 
     function genererHTML(snapshot){
       let biler = snapshot.val();
-      main.innerHTML +=`
+      let key = snapshot.key;
+      pop.innerHTML +=`
+        <a href="annonse.html?id=${key}">
           <article class="Biler">
-            <h1>${biler.Merke}${biler.Modell}</h1>
-            <img src="bilderIT/${biler.Bilde}" alt="">
+            <h1>${biler.Merke} ${biler.Modell}</h1>
+            <img class="litebilde" src="bilderIT/${biler.Bilde}" alt="">
             <p>Km-stand: ${biler.Kmstand} År: ${biler.År}</p>
-            <p>Pris: ${biler.pris}</p>
+            <p>Pris: ${biler.Pris}</p>
           </article>
+        </a>
       `
     }
 
-    function sorterAlder(){
-      main.innerHTML = ``
-        biler.orderByChild("Alder")
-        .on("child_added",genererHTML);
+    function populært(){
+      pop.innerHTML+= ``
+      biler.orderByChild("Populæritet")
+      .limitToLast(3)
+      .on("child_added", genererHTML);
     }
-
-    function sorterMerke(){
-      main.innerHTML = ``
-        biler.orderByChild("Merke")
-        .on("child_added",genererHTML);
-    }
-
-    function sorterSynkende(){
-      main.innerHTML = ``
-        biler.orderByChild("Pris")
-        .on("child_added",genererHTML);
-    }
-
-    function sorterStigende(){
-      main.innerHTML = ``
-        biler.orderByChild("Pris")
-        .on("child_added",genererHTML);
-    }
-
-    function VisBMW(){
-      main.innerHTML = ``
-        biler.orderByChild("Merke")
-        .equalTo("BMW")
-        .on("child_added", genererHTML);
-    }
+    biler.on("value", populært);
     </script>
   </body>
 </html>

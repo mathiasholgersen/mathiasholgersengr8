@@ -2,31 +2,33 @@ nav{
   display: grid;
   grid-template-columns: repeat(3,1fr)
 }
-header a{
+header nav a{
   display: block;
   padding: 8px 16px;
   text-decoration: none;
   background-color: lightgrey;
   text-align: center;
+  color: white;
 }
-header h1{
-  text-align: center;
-  margin: 40px;
+header{
+  background-image: url("bilderIT/bakgrunn.jpg");
+  background-repeat: no-repeat;
 }
 a {
   color: black;
   text-decoration: none;
-  transition: all .2s ease-in-out;
 }
-a:hover{
+header a:hover{
   transform: scale(1.1);
-  color: white;
+  transition: all .2s ease-in-out;
+  color: crimson;
+}
+main a:hover{
+  transform: scale(1.03);
+  transition: all .2s ease-in-out;
+  color: crimson;
 }
 
-.populært{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
 main{
   margin-left: 70px;
 }
@@ -40,10 +42,193 @@ button{
 }
 .sortereknapper{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1.5fr 0.5fr;
   margin-left: 70px;
 }
 .Biler{
   border: 1px black;
   border-radius: 10px;
+}
+#populært{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+nav a{
+  ;
+  position: relative;
+  letter-spacing: 5px;
+}
+nav a:last-child{
+  margin-right: 0;
+}
+nav a::before,
+nav a::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: crimson;
+  left: 0;
+  transform: scaleX(0);
+  transition: all .5s;
+}
+nav a::before{
+  top: 0;
+  transform-origin: left;
+}
+nav a::after{
+  bottom: 0;
+  transform-origin: right;
+}
+nav a:hover::before,
+nav a:hover::after{
+  transform: scaleX(1);
+}
+.logo  {
+  display: block;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sortereknapper a{
+  ;
+  position: relative;
+  letter-spacing: 5px;
+}
+.sortereknapper a:last-child{
+  margin-right: 0;
+}
+.sortereknapper a::before,
+.sortereknapper a::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: crimson;
+  left: 0;
+  transform: scaleX(0);
+  transition: all .5s;
+}
+.sortereknapper a::before{
+  top: 0;
+  transform-origin: left;
+}
+.sortereknapper a::after{
+  bottom: 0;
+  transform-origin: right;
+}
+.sortereknapper a:hover::before,
+.sortereknapper a:hover::after{
+  transform: scaleX(1);
+}
+#bilbilde{
+  display: block;
+  width: 63.7%;
+  margin-left: 70px;
+  margin-top: 40px;
+}
+#overskrift{
+  display: block;
+  width: 50%;
+  margin-left: 70px;
+  border-bottom: 3px solid black;
+}
+
+#detaljer{
+  display: block;
+  width: 50%;
+  margin-left: 70px;
+}
+.annonsebilde{
+  height: 500px;
+}
+iframe{
+  margin-top: 70px;
+}
+#avsnitt {
+  width: 888px;
+}
+main a{
+  display: block;
+  background-color: lightgrey;
+  margin-right: 90px;
+  padding-left:25px;
+  margin-top: 30px;
+}
+
+.litebilde{
+  width: 250px;
+  height: 167px;
+}
+
+.logoer{
+  height: 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 70px;
+}
+footer{
+  bottom:0;
+  width:100%;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  background-color: lightgrey;
+  padding-left: 10px;
+  text-decoration-color: white;
+}
+footer h2{
+  display: inline;
+  padding-top: 30px;
+}
+footer a:hover{
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  color: crimson;
+}
+main{
+  padding-bottom: 200px;
+}
+.ansatte{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+}
+button{
+  all: unset;
+  background-color: lightgrey;
+  padding: 3px;
+}
+input[type=text] {
+  all: unset;
+  border: 1px solid #555;
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=text]:focus {
+  border: 3px solid crimson;
+}
+#bilbilde{
+  border: 3px solid black;
+  width: 64.3%;
+}
+form{
+  margin-left: 70px;
+}
+.skjemasend{
+  display: grid;
+  grid-template-columns: 1fr 1fr 7fr
+}
+.sortereknapper a{
+  margin-top: 0px;
+}
+#populært{
+  padding-bottom: 70px;
+  border-bottom: 3px solid black
+}
+.ansatte{
+  border-bottom: 3px solid black;
+  padding-bottom: 30px;
+  width: 888px;
 }
